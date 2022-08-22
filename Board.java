@@ -1,8 +1,7 @@
-import java.util.*;
 
 public class Board {
     private int[][] board;
-    int k = 8;
+    int k = 10;
     int c = 6;
 
     public Board() {
@@ -16,26 +15,11 @@ public class Board {
         }
     }
 
-    public void setCoordinate(int x, int y, int value) {
-        this.board[x][y] = value;
-    }
-
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < k; i++) {
             for (int j = 0; j < c; j++) {
                 sb.append("[");
-                switch (this.board[i][j]) {
-                    case 0:
-                        sb.append(" ");
-                        break;
-                    case 1:
-                        sb.append("X");
-                        break;
-                    case 2:
-                        sb.append("O");
-                        break;
-                }
 
                 sb.append("]");
             }
