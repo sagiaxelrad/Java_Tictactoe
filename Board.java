@@ -6,16 +6,8 @@ public class Board {
     int k = 10;
     int c = 6;
 
-    public static void main(String[] args) {
-
-        Board board = new Board(); // create a new board
-
-        System.out.println(board);
-
-    }
-
     public Board() {
-        // create a new board
+        // creates a new board
 
         this.board = new int[k][c];
         for (int i = 0; i < k; i++) {
@@ -31,8 +23,11 @@ public class Board {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < k; i++) {
-            for (int j = 0; j < c; j++) {
+        for (int i = 1; i < k; i++) {
+            for (int j = 1; j < c; j++) {
+                if (j == 1) {
+                    sb.append(i);
+                }
                 sb.append("[");
                 switch (this.board[i][j]) {
                     case 0:
