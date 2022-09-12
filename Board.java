@@ -1,10 +1,8 @@
 
-import java.util.Scanner;
-
 public class Board {
     private int[][] board;
     int k = 10;
-    int c = 6;
+    int c = 30;
 
     public Board() {
         // creates a new board
@@ -23,7 +21,29 @@ public class Board {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 1; i < k; i++) {
+        if (c < 27) {
+            sb.append(" ");
+            for (int l = 1; l < c; l++) {
+                sb.append(" ");
+                String converted = Character.toString(l + 64);
+                sb.append(converted);
+                sb.append(" ");
+            }
+        } else {
+            c = 27;
+            sb.append(" ");
+            for (int l = 1; l < c; l++) {
+                sb.append(" ");
+                String converted = Character.toString(l + 64);
+                sb.append(converted);
+                sb.append(" ");
+            }
+        }
+
+        sb.append("\n");
+        for (
+
+                int i = 1; i < k; i++) {
             for (int j = 1; j < c; j++) {
                 if (j == 1) {
                     sb.append(i);
