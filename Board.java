@@ -1,13 +1,9 @@
-import java.util.*;
-
 public class Board {
-    private int[][] board;
-    int k = 5;
-    int c = 150;
-
+    public int[][] board;
+    int k = 4;
+    int c = 4;
     public Board() {
-        // create a new board
-
+        // creates a new board
         this.board = new int[k][c];
         for (int i = 0; i < k; i++) {
             for (int j = 0; j < c; j++){
@@ -18,7 +14,25 @@ public class Board {
     //determine where to place symbols
     public void setCoordinate(int x, int y, int value) {
         this.board[x][y] = value;
-    
+    }
+    public String testwin(){
+        String resault = "";
+        for(int l=0; l<3; l++){
+            if((board[1][l]==board[2][l])&&(board[2][l]==board[3][l])&&(board[1][l]!=0)){
+                    resault = "you won";
+                }}
+        for(int m=0; m<3; m++){
+            if((board[m][1]==board[m][2])&&(board[m][2]==board[m][3])&&(board[m][1]!=0)){
+                    resault = "you won";
+                }}
+            
+        if((board[1][1]==board[2][2])&&(board[2][2]==board[3][3])&&(board[1][1]!=0)){
+                resault = "you won";
+            }
+        if((board[1][3]==board[2][2])&&(board[2][2]==board[3][1])&&(board[1][3]!=0)){
+            resault = "you won";
+        }
+            return resault; 
     }
     //draw the 
     public String toString() {
@@ -26,8 +40,7 @@ public class Board {
         if(c>61){
             c = 61;
             }
-        if(c<27){
-        
+        if(c<27){ 
         sb.append(" ");
         for (int l = 1; l<c; l++){
             sb.append(" ");
@@ -38,8 +51,7 @@ public class Board {
         }
         else{
             sb.append(" ");
-            for (int l = 1; l<c; l++){
-                
+            for (int l = 1; l<c; l++){  
                 sb.append(" ");
                 sb.append(l);
                 if(l<10){
@@ -63,12 +75,11 @@ public class Board {
                         sb.append("O");
                         break;
                 }
-
                 sb.append("]");
             }
             sb.append("\n");
         }
+        sb.append(testwin());
         return sb.toString();
-    }
-
+}
 }
