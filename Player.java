@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 /*
  * 
  *TODO:  
@@ -8,15 +7,12 @@ import java.util.Scanner;
 public class Player {
     Scanner scanner;
     private String name;
-
     public Player() {
         this.name = getUserInput(3);
     }
-
     public Player(String name) {
         this.name = name;
     }
-
     public String getUserInput(int c) {
         prompt(c);
         scanner = new Scanner(System.in);
@@ -25,9 +21,7 @@ public class Player {
         } else {
             return "";
         }
-
     }
-
     public void prompt(int c) {
         switch (c) {
             case 1:
@@ -43,7 +37,5 @@ public class Player {
                 System.out.println("Eat a Banana and play again!");
                 break;
         }
-
     }
-
 }
