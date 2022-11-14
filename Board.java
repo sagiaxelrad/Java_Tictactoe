@@ -28,7 +28,7 @@ public class Board {
             if((board[m][1]==board[m][2])&&(board[m][2]==board[m][3])&&(board[m][1]!=0)){
                     resault = "you won";
                 }}
-        //test diagnal
+        //test diagonal
         if((board[1][1]==board[2][2])&&(board[2][2]==board[3][3])&&(board[1][1]!=0)){
                 resault = "you won";
             }
@@ -36,6 +36,31 @@ public class Board {
             resault = "you won";
         }
             return resault; 
+    }
+    public String testwinbigtest(){
+       String resault="";
+       for(int r=1; r<k; r++){
+        for(int h=1; h<c; h++){
+            if(h+2<c){
+            if(board[r][h]==board[r][h+1]&&board[r][h]==board[r][h+2]&&board[r][h]!=0){
+                resault="you won";
+            }}
+            if(r+2<k){
+            if(board[r][h]==board[r+1][h]&&board[r][h]==board[r+2][h]&&board[r][h]!=0){
+                resault="you won";
+            }}
+            if(r+2<k&&h+2<c){
+            if(board[r][h]==board[r+1][h+1]&&board[r][h]==board[r+2][h+2]&&board[r][h]!=0){
+                resault="you won";
+            }}
+            if(r-2>1){
+            if(board[r][h]==board[r-1][h+1]&&board[r][h]==board[r-2][h+2]&&board[r][h]!=0){
+                resault="you won";
+            }
+        }
+       }
+    }
+    return resault;
     }
     //draw the board
     public String toString() {
@@ -84,7 +109,7 @@ public class Board {
             }
             sb.append("\n");
         }
-        sb.append(testwin());
+        sb.append(testwinbigtest());
         return sb.toString();
 }
 }
