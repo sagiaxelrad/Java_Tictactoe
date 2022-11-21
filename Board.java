@@ -16,28 +16,8 @@ public class Board {
         this.board[x][y] = value;
     }
     //test if somebody won
+    
     public String testwin(){
-        String resault = "";
-        //test collumns
-        for(int l=0; l<3; l++){
-            if((board[1][l]==board[2][l])&&(board[2][l]==board[3][l])&&(board[1][l]!=0)){
-                    resault = "you won";
-                }}
-        //test row
-        for(int m=0; m<3; m++){
-            if((board[m][1]==board[m][2])&&(board[m][2]==board[m][3])&&(board[m][1]!=0)){
-                    resault = "you won";
-                }}
-        //test diagonal
-        if((board[1][1]==board[2][2])&&(board[2][2]==board[3][3])&&(board[1][1]!=0)){
-                resault = "you won";
-            }
-        if((board[1][3]==board[2][2])&&(board[2][2]==board[3][1])&&(board[1][3]!=0)){
-            resault = "you won";
-        }
-            return resault; 
-    }
-    public String testwinbigtest(){
        String resault="";
        for(int r=1; r<k; r++){
         for(int h=1; h<c; h++){
@@ -53,8 +33,8 @@ public class Board {
             if(board[r][h]==board[r+1][h+1]&&board[r][h]==board[r+2][h+2]&&board[r][h]!=0){
                 resault="you won";
             }}
-            if(r-2>1){
-            if(board[r][h]==board[r-1][h+1]&&board[r][h]==board[r-2][h+2]&&board[r][h]!=0){
+            if(h-2>0&&r+2<c){
+            if(board[r][h]==board[r+1][h-1]&&board[r][h]==board[r+2][h-2]&&board[r][h]!=0){
                 resault="you won";
             }
         }
@@ -69,6 +49,7 @@ public class Board {
         if(c>61){
             c = 61;
             }
+        //convert lable to letters
         if(c<27){ 
         sb.append(" ");
         for (int l = 1; l<c; l++){
@@ -109,7 +90,7 @@ public class Board {
             }
             sb.append("\n");
         }
-        sb.append(testwinbigtest());
+        sb.append(testwin());
         return sb.toString();
 }
 }
